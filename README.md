@@ -1,1 +1,1 @@
-# autoi_nstall_linux
+# auto_install_linux
