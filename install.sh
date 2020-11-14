@@ -88,7 +88,7 @@ chmod +x /home/$USER/log2ram-master/install.sh && sudo sh /home/$USER/log2ram-ma
 #cd ~
 sudo rm -r log2ram*
 }
-
+#lacer ces commandes sans sudo... car la commande se lance dans le dossier root.
 config_tmux () {
 whiptail --title "TMUX" --msgbox "Configuration de Tmux" 8 78
 cat << 'EOF' >> ~/.tmux.conf
