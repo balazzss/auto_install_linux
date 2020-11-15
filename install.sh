@@ -16,10 +16,10 @@ whiptail --title "Internet" --msgbox "Virification si nous avons bien accès à 
 nc -z 8.8.8.8 53  >/dev/null 2>&1
 online=$?
 if [ $online -eq 0 ]; then
-            whiptail --title "Connecté" --msgbox "Vous êtes bien connecté à internet!" 8 78
+        whiptail --title "Connecté" --msgbox "Vous êtes bien connecté à internet!" 8 78
 else
-            whiptail --title "Non connecté" --msgbox "Vérifier la connexion à internet pour pouvoir continuer." 8 78
-            clear
+        whiptail --title "Non connecté" --msgbox "Vérifier la connexion à internet pour pouvoir continuer." 8 78
+        clear
 fi
 }
 
@@ -121,15 +121,15 @@ end () {
 whiptail --title "Configuration completed" --msgbox "La configuration de votre machine est terminé." 8 78
 }
 main () {
-            rootpass || error "User exited."
-            network || error "User exited."
-            update_upgrade || error "User exited."
-            programms_install || error "User exited."
-            function_changeSSHport || error "User exited."
-            add_user || error "User exited."
-            config_tmux || error "User exited."
-            install_log2ram || error "User exited."
-            end
-            clear
+        rootpass || error "User exited."
+        network || error "User exited."
+        update_upgrade || error "User exited."
+        programms_install || error "User exited."
+        function_changeSSHport || error "User exited."
+        add_user || error "User exited."
+        config_tmux || error "User exited."
+        install_log2ram || error "User exited."
+        end
+        clear
 }
 main
