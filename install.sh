@@ -76,22 +76,22 @@ fi
 add_user () {
 NEW_NAME=$(whiptail --inputbox "Adding user" 8 78 Name --title "Entrer le nom d'utilistaur" 3>&1 1>&2 2>&3)
 exitstatus=$?
-if [ $exitsatus = 0 ]; then
-            #NEW_MDP=$(whiptail --passwordbox "please enter your secret password" 8 78 --title "password dialog" 3>&1 1>&2 2>&3)
-            PASS1=$(whiptail --nocancel --passwordbox "Enter a password for that user." 8 78 3>&1 1>&2 2>&3 3>&1)
-            PASS2=$(whiptail --nocancel --passwordbox "Retype password." 8 78 3>&1 1>&2 2>&3 3>&1)
-            while ! [ "$pass1" = "$pass2" ]; do
-                unset pass2
-                PASS1=$(whiptail --nocancel --passwordbox "Passwords do not match.\\n\\nEnter password again." 10 60 3>&1 1>&2 2>&3 3>&1)
-                PASS2=$(whiptail --nocancel --passwordbox "Retype password." 10 60 3>&1 1>&2 2>&3 3>&1)
-            done
-            exitstatus=$?
-            if [ $exitstatus = 0 ]; then
-                    echo "$root_pass" | sudo -S adduser $NEW_NAME --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
-                    echo "$root_pass" | sudo -S echo "$NEW_NAME:$PASS1" | sudo chpasswd
-            else
-                    echo "User selected Cancel."
-            fi
+if [ $exitstatus = 0 ]; then
+         #NEW_MDP=$(whiptail --passwordbox "please enter your secret password" 8 78 --title "password dialog" 3>&1 1>&2 2>&3)
+         PASS1=$(whiptail --nocancel --passwordbox "Enter a password for that user." 8 78 3>&1 1>&2 2>&3 3>&1)
+         PASS2=$(whiptail --nocancel --passwordbox "Retype password." 8 78 3>&1 1>&2 2>&3 3>&1)
+         while ! [ "$pass1" = "$pass2" ]; do
+             unset pass2
+             PASS1=$(whiptail --nocancel --passwordbox "Passwords do not match.\\n\\nEnter password again." 10 60 3>&1 1>&2 2>&3 3>&1)
+             PASS2=$(whiptail --nocancel --passwordbox "Retype password." 10 60 3>&1 1>&2 2>&3 3>&1)
+         done
+         exitstatus=$?
+         if [ $exitstatus = 0 ]; then
+                 echo "$root_pass" | sudo -S adduser $NEW_NAME --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
+                 echo "$root_pass" | sudo -S echo "$NEW_NAME:$PASS1" | sudo chpasswd
+         else
+                 echo "User selected Cancel."
+         fi
 fi
 }
 
