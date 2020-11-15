@@ -1,7 +1,15 @@
 #!/bin/bash
 #ajout d'une interface graphique
 whiptail --title "Bienvenue" --msgbox "Bienvenue dans l'installation des outils pour votre machine, cliquez sur OK pour continuier" 8 78
+
+rootpass () {
 root_pass=$(whiptail --nocancel --passwordbox "Pour continuer veuillez entrer le mot de passe administrateur:" 10 60 3>&1 1>&2 2>&3 3>&1)
+if [ -z "root_pass" ]; then
+        whiptail --title "Pas de mot de passe" --msgbox "Aucun mot de passe root. Veuillez relancer le programme puis entrer le mot de passe root" 8 78
+        clear && exit
+fi
+}
+
 #Vérifier la connexion à internet, si aucune alors quitte le programme
 network () {
 whiptail --title "Internet" --msgbox "Virification si nous avons bien accès à internet" 8 78
@@ -11,26 +19,27 @@ if [ $online -eq 0 ]; then
             whiptail --title "Connecté" --msgbox "Vous êtes bien connecté à internet!" 8 78
 else
             whiptail --title "Non connecté" --msgbox "Vérifier la connexion à internet pour pouvoir continuer." 8 78
-            exit
+            clear
 fi
 }
 
 update_upgrade () {
 whiptail --title "Mise à jour des paquets" --msgbox "Mises à jour des paquets." 8 78
+        clear
         if ! { sudo apt update 2>&1 || echo E: update failed; } | grep -q '^[WE]:'; then
-            echo apt update success
+            echo :::apt update success
         else
-            echo apt update failure
+            echo :::apt update failure
         fi
         if ! { sudo apt upgrade -y 2>&1 || echo E: update failed; } | grep -q '^[WE]:'; then
-            echo apt upgrade success
+            echo :::apt upgrade success
         else
-            echo apt upgrade failure
+            echo :::apt upgrade failure
         fi
         if ! { sudo apt dist-upgrade -y 2>&1 || echo E: update failed; } | grep -q '^[WE]:'; then
-            echo apt dist-upgrade success
+            echo :::apt dist-upgrade success
         else
-            echo apt dist-upgrade failure
+            echo :::apt dist-upgrade failure
         fi
         if ! { sudo apt autoremove -y 2>&1 || echo E: update failed; } | grep -q '^[WE]:'; then
             echo apt autoremove success
@@ -108,7 +117,11 @@ set -g mouse on
 EOF
 }
 
+end () {
+whiptail --title "Configuration completed" --msgbox "La configuration de votre machine est terminé." 8 78
+}
 main () {
+            rootpass || error "User exited."
             network || error "User exited."
             update_upgrade || error "User exited."
             programms_install || error "User exited."
@@ -116,6 +129,7 @@ main () {
             add_user || error "User exited."
             config_tmux || error "User exited."
             install_log2ram || error "User exited."
+            end
             clear
 }
 main
