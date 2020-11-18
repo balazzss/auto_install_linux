@@ -11,4 +11,6 @@ Le programme va:
 ### Lancer la configuration: 
     wget https://raw.githubusercontent.com/balazzss/auto_install_linux/main/install.sh
     sudo chmod +x $HOME/install.sh && sh $HOME/install.sh
+    
+    curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/install.sh | bash
 !!! Lancer le programme avec le compte utilisateur !!!
