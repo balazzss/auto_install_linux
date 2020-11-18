@@ -59,6 +59,11 @@ whiptail --title "Installation des programmes" --msgbox "Installation des progra
         sudo apt install curl wget git -y
         sudo timedatectl set-timezone Europe/Brussels
 }
+#nouvelle fonction à vérifier
+#set_keyboard () {
+#keyboard=$(whiptail --inputbox "Set your keyboard" 8 78  --title "Enter the language of your keyboard" 3>&1 1>&2 2>&3)
+#        sudo sed -i 's/XKBLAYOUT="gb"/XKBLAYOUT=be/g' /etc/default/keyboard
+#}
 
 function_changeSSHport () {
 SSHPORT=$(whiptail --inputbox "Change SSH port" 8 78  --title "Entrer le numéro du port que vous souhaitez utiliser pour vous connecter en SSH." 3>&1 1>&2 2>&3)
@@ -95,6 +100,14 @@ if [ $exitstatus = 0 ]; then
 fi
 }
 
+user_sudoers () {
+        if [ -z "$NEW_NAME" ]; then
+                echo "::: Pas de nouvel utilisateur"
+        else
+                sudo sed -i 's/XKBLAYOUT="gb"/XKBLAYOUT=be/g' /etc/default/keyboard
+        fi
+}
+
 install_log2ram () {
 whiptail --title "Log2ram" --msgbox "Téléchargement et installation de log2ram" 8 78
 sudo curl -Lo log2ram.tar.gz https://github.com/azlux/log2ram/archive/master.tar.gz
@@ -127,6 +140,7 @@ main () {
         programms_install || error "User exited."
         function_changeSSHport || error "User exited."
         add_user || error "User exited."
+        user_sudoers || error "User exited."
         config_tmux || error "User exited."
         install_log2ram || error "User exited."
         end
