@@ -14,3 +14,7 @@ Le programme va:
     
     curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/install.sh | bash
 !!! Lancer le programme avec le compte utilisateur !!!
+
+
+### A ajouter
+- user -> suoders
