@@ -100,13 +100,13 @@ if [ $exitstatus = 0 ]; then
 fi
 }
 
-user_sudoers () {
-        if [ -z "$NEW_NAME" ]; then
-                echo "::: Pas de nouvel utilisateur"
-        else
-                sudo sed -i 's/XKBLAYOUT="gb"/XKBLAYOUT=be/g' /etc/default/keyboard
-        fi
-}
+#user_sudoers () {
+#        if [ -z "$NEW_NAME" ]; then
+#                echo "::: Pas de nouvel utilisateur"
+#        else
+#                sudo sed -i 's/XKBLAYOUT="gb"/XKBLAYOUT=be/g' /etc/default/keyboard
+#        fi
+#}
 
 install_log2ram () {
 whiptail --title "Log2ram" --msgbox "Téléchargement et installation de log2ram" 8 78
@@ -140,7 +140,7 @@ main () {
         programms_install || error "User exited."
         function_changeSSHport || error "User exited."
         add_user || error "User exited."
-        user_sudoers || error "User exited."
+        #user_sudoers || error "User exited."
         config_tmux || error "User exited."
         install_log2ram || error "User exited."
         end
