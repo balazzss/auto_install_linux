@@ -71,7 +71,7 @@ sudo cat << 'EOF' > /etc/update-motd.d/90-footer
 EOF
 }
 
-function makeinstall () {
+makeinstall () {
 	install
 	header
 	sysinfo
