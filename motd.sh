@@ -20,7 +20,6 @@ install () {
       	# remove MOTD file
       	rm -r /etc/motd
 }
-install
 
 header () {
 cat << 'EOF' > /etc/update-motd.d/00-header
@@ -71,8 +70,11 @@ cat << 'EOF' > /etc/update-motd.d/90-footer
 EOF
 }
 
-install () {
-        header
-        sysinfo
-        footer
+function makeinstall () {
+	install
+	header
+	sysinfo
+	footer
 }
+makeinstall
+
