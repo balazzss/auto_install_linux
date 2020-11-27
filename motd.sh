@@ -7,7 +7,8 @@ install () {
       	# create directory
       	DIRECTORY=/etc/update-motd.d
       	if [ -d "$DIRECTORY" ]; then
-          		echo "$DIRECTORY exists."
+          		echo ":::::: $DIRECTORY exists. ::::::"
+			sudo rm -r /etc/update-motd.d/10-uname
       	else
 	          	mkdir /etc/update-motd.d
       	fi
