@@ -72,10 +72,10 @@ EOF
 }
 
 function makeinstall () {
-	sudo -i install
-	sudo -i header
-	sudo -i sysinfo
-	sudo -i footer
+	install
+	header
+	sysinfo
+	footer
 }
-sudo -i makeinstall
+makeinstall
 
