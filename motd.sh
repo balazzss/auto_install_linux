@@ -23,7 +23,7 @@ install () {
 }
 
 header () {
-cat << 'EOF' > /etc/update-motd.d/00-header
+sudo cat << 'EOF' > /etc/update-motd.d/00-header
 #!/bin/sh 
 [ -r /etc/lsb-release ] ; /etc/lsb-release
  
@@ -41,7 +41,7 @@ EOF
 }
 
 sysinfo () {
-cat << 'EOF' > /etc/update-motd.d/10-sysinfo
+sudo cat << 'EOF' > /etc/update-motd.d/10-sysinfo
 #!/bin/bash
 date=`date`
 load=`cat /proc/loadavg | awk '{print $1}'`
@@ -65,7 +65,7 @@ EOF
 }
 
 footer () {
-cat << 'EOF' > /etc/update-motd.d/90-footer
+sudo cat << 'EOF' > /etc/update-motd.d/90-footer
 #!/bin/sh
 [ -f /etc/motd.tail ] ; cat /etc/motd.tail || true
 EOF
