@@ -15,7 +15,11 @@ Le programme va:
     curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/install.sh | bash
 !!! Lancer le programme avec le compte utilisateur !!!
 
+### Custom deluser with backup file of the user file
     curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/deluser.sh | bash
+    
+### MOTD custom
+    curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/motd.sh | sudo bash
     
 ### A ajouter
 - user -> suoders
