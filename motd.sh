@@ -8,9 +8,8 @@ install () {
       	DIRECTORY=/etc/update-motd.d
       	if [ -d "$DIRECTORY" ]; then
           		echo ":::::: $DIRECTORY exists. ::::::"
-			sudo rm -r /etc/update-motd.d/10-uname
       	else
-	          	mkdir /etc/update-motd.d
+	          	sudo mkdir /etc/update-motd.d
       	fi
       	# create dynamic files
       	sudo touch /etc/update-motd.d/00-header
@@ -19,7 +18,12 @@ install () {
       	# make files executable
       	sudo chmod +x /etc/update-motd.d/*
       	# remove MOTD file
-      	rm -r /etc/motd
+	MOTD=/etc/motd
+	if [ -d "$MOTD" ]; then 
+      			sudo rm -r /etc/motd
+	else
+			echo ":::::: $MOTD does not exist ::::::"
+	fi
 }
 
 header () {
@@ -72,10 +76,10 @@ EOF
 }
 
 makeinstall () {
-	install
-	header
-	sysinfo
-	footer
+	sudo install
+	sudo header
+	sudo sysinfo
+	sudo footer
 }
 makeinstall
 
