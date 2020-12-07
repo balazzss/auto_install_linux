@@ -76,10 +76,10 @@ EOF
 }
 
 makeinstall () {
-	sudo install
-	sudo header
-	sudo sysinfo
-	sudo footer
+	install
+	header
+	sysinfo
+	footer
 }
 makeinstall
 
