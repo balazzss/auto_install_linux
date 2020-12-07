@@ -1,5 +1,5 @@
 #!/bin/bash
-install () {
+install_main () {
         # install lsb-release
       	sudo apt install lsb-release
       	# install figlet to enable ASCII art
@@ -76,7 +76,7 @@ EOF
 }
 
 makeinstall () {
-	install
+	install_main
 	header
 	sysinfo
 	footer
