@@ -22,7 +22,9 @@ Le programme va:
     curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/motd.sh | sudo bash
 
 ### Informations sur l'ordinateur
-    wget https://raw.githubusercontent.com/balazzss/auto_install_linux/main/computer_informations
-    chmod +x 
+    wget https://raw.githubusercontent.com/balazzss/auto_install_linux/main/computer_info.sh
+    chmod +x computer_info.sh
+    ./computer_info.sh
+    
 ### A ajouter
 - user -> suoders
