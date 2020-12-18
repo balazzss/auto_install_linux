@@ -20,6 +20,9 @@ Le programme va:
     
 ### MOTD custom
     curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/motd.sh | sudo bash
-    
+
+### Informations sur l'ordinateur
+    wget https://raw.githubusercontent.com/balazzss/auto_install_linux/main/computer_informations
+    chmod +x 
 ### A ajouter
 - user -> suoders
