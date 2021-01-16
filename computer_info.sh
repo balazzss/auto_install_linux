@@ -3,7 +3,7 @@
 file_check () {                                                                                                                                                                                                                                                                                                  
     FILENAME=ordinateur_de_$USERNAME                                                                                                                                                                                   
     if [ -e "$FILENAME" ]; then                                                                                                                                                                                    
-        echo -e "Vous avez déjà lancé ce programme une fois. Pour le relancer veuillez supprimer le fichier ordinateur_de_$USERNAME \n Si vous n'y parvenez pas, contactez votre administrateur système." && exit           
+        echo -e "Vous avez déjà lancé ce programme une fois. Pour le relancer veuillez supprimer le fichier ordinateur_de_$USERNAME \nSi vous n'y parvenez pas, contactez votre administrateur système." && exit           
     fi                                                                                                                                                                                                             
 }                                                                                                                                                                                                                  
 file_check  
@@ -23,7 +23,7 @@ main () {
                                                                                                                                                                                                                    
     echo -e "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
     echo -e "Le nom d'utilisateur est : $USERNAME" >> Infos
-    echo -e "liste des utilisateurs : \n $ALL_USERS" >> Infos 
+    echo -e "liste des utilisateurs : \n$ALL_USERS" >> Infos 
     echo -e "------------------------------------------------" >> Infos
     echo -e "Nom d'hôte : $HOSTNAME" >> Infos
     echo -e "------------------------------------------------" >> Infos
@@ -31,9 +31,9 @@ main () {
     echo -e "------------------------------------------------" >> Infos
     echo -e "La version d'Ubunutu est : Ubuntu $UBUNTU_VERSION" >> Infos 
     echo -e "------------------------------------------------" >> Infos
-    echo -e "MAC address: \n $MAC_ADDR" >> Infos
+    echo -e "MAC address: \n$MAC_ADDR" >> Infos
     echo -e "------------------------------------------------" >> Infos
-    echo -e "IP address: \n $IP_ADDR" >> Infos
+    echo -e "IP address: \n$IP_ADDR" >> Infos
     echo -e "------------------------------------------------" >> Infos
     echo -e "Version des logiciels" >> Infos
     echo -e "$FIREFOX" >> Infos                                                                                                                                                                                       
