@@ -21,29 +21,29 @@ main () {
     USERNAME=$(users)
     ALL_USERS=$(awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd)
                                                                                                                                                                                                                    
-    echo "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
-    echo "Le nom d'utilisateur est : $USERNAME" >> Infos
-    echo "liste des utilisateurs : \n $ALL_USERS" >> Infos 
-    echo "------------------------------------------------" >> Infos
-    echo "Nom d'hôte : $HOSTNAME" >> Infos
-    echo "------------------------------------------------" >> Infos
-    echo "Numéro d'inventaire : $ID_GLPI" >> Infos
-    echo "------------------------------------------------" >> Infos
-    echo "La version d'Ubunutu est : Ubuntu $UBUNTU_VERSION" >> Infos 
-    echo "------------------------------------------------" >> Infos
-    echo "MAC address: \n $MAC_ADDR" >> Infos
-    echo "------------------------------------------------" >> Infos
-    echo "IP address: \n $IP_ADDR" >> Infos
-    echo "------------------------------------------------" >> Infos
-    echo "Version des logiciels" >> Infos
-    echo "$FIREFOX" >> Infos                                                                                                                                                                                       
-    echo "$THUNDERBIRD" >> Infos                                                                                                                                                                                   
-    echo "$LIBRE_OFFICE" >> Infos                                                                                                                                                                                  
+    echo -e "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
+    echo -e "Le nom d'utilisateur est : $USERNAME" >> Infos
+    echo -e "liste des utilisateurs : \n $ALL_USERS" >> Infos 
+    echo -e "------------------------------------------------" >> Infos
+    echo -e "Nom d'hôte : $HOSTNAME" >> Infos
+    echo -e "------------------------------------------------" >> Infos
+    echo -e "Numéro d'inventaire : $ID_GLPI" >> Infos
+    echo -e "------------------------------------------------" >> Infos
+    echo -e "La version d'Ubunutu est : Ubuntu $UBUNTU_VERSION" >> Infos 
+    echo -e "------------------------------------------------" >> Infos
+    echo -e "MAC address: \n $MAC_ADDR" >> Infos
+    echo -e "------------------------------------------------" >> Infos
+    echo -e "IP address: \n $IP_ADDR" >> Infos
+    echo -e "------------------------------------------------" >> Infos
+    echo -e "Version des logiciels" >> Infos
+    echo -e "$FIREFOX" >> Infos                                                                                                                                                                                       
+    echo -e "$THUNDERBIRD" >> Infos                                                                                                                                                                                   
+    echo -e "$LIBRE_OFFICE" >> Infos                                                                                                                                                                                  
     cat Infos | sed -e 's/^[ \t]*//' > ordinateur_de_$USERNAME                                                                                                                                                         
     rm -r Infos                                                                                                                                                                                                    
                                                                                                                                                                                                                                                                                                                                                                                                     
                                                                                                                                                                                                                    
-    whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_$USERNAME dans votre dossier Dossier Personnel.\nIl suffit d'envoyer le fichier par mail à Balàzs. \n.\nMerci et à bientôt.\n" 12 78                                                                                                                                    
+    whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_$USERNAME dans votre dossier Dossier Personnel. Il suffit d'envoyer le fichier par mail à Balàzs. Merci et à bientôt." 12 78                                                                                                                                    
                                                                                                                                                                                                                    
     #If need to delete the file uncomment the folowing line:                                                                                                                                                       
     #rm -- "$0"                                                                                                                                                                                                    
