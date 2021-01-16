@@ -9,8 +9,8 @@ file_check () {
 file_check  
                                                                                                                                                                                                                    
 main () {                                                                                                                                                                                                          
-    NAME=$(whiptail --inputbox --nocancel "Merci d'entrer votre NOM : " 8 78 --title "Utilisateur" 3>&1 1>&2 2>&3)                                                                                                
-    whiptail --title "Bienvenue" --msgbox "Bienvenue $NAME.\nVeuillez bien lire les instructions, Merci" 8 78                                                                                                      
+    NAME=$(whiptail --inputbox --nocancel "Veuillez entrer votre prénom et nom : " 8 78 --title "Utilisateur" 3>&1 1>&2 2>&3)                                                                                                
+    whiptail --title "Bienvenue" --msgbox "Bienvenue $NAME.\nVeuillez bien lire les instructions suivantes." 8 78                                                                                                      
     HOSTNAME=$(hostname)                                                                                                                                                                                           
     UBUNTU_VERSION=$(lsb_release -sr)                                                                                                                                                                              
     FIREFOX=$(firefox -v)                                                                                                                                                                                          
@@ -22,7 +22,9 @@ main () {
     ALL_USERS=$(awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd)
                                                                                                                                                                                                                    
     echo -e "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
+    echo -e "------------------------------------------------" >> Infos
     echo -e "Le nom d'utilisateur est : $USERNAME" >> Infos
+    echo -e "------------------------------------------------" >> Infos
     echo -e "liste des utilisateurs : \n$ALL_USERS" >> Infos 
     echo -e "------------------------------------------------" >> Infos
     echo -e "Nom d'hôte : $HOSTNAME" >> Infos
@@ -35,7 +37,7 @@ main () {
     echo -e "------------------------------------------------" >> Infos
     echo -e "IP address: \n$IP_ADDR" >> Infos
     echo -e "------------------------------------------------" >> Infos
-    echo -e "Version des logiciels" >> Infos
+    echo -e "Version des logiciels sur l'ordinateur:" >> Infos
     echo -e "$FIREFOX" >> Infos                                                                                                                                                                                       
     echo -e "$THUNDERBIRD" >> Infos                                                                                                                                                                                   
     echo -e "$LIBRE_OFFICE" >> Infos                                                                                                                                                                                  
@@ -43,11 +45,10 @@ main () {
     rm -r Infos                                                                                                                                                                                                    
                                                                                                                                                                                                                                                                                                                                                                                                     
                                                                                                                                                                                                                    
-    whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_$USERNAME dans votre dossier Dossier Personnel. Il suffit d'envoyer le fichier par mail à Balàzs. Merci et à bientôt." 12 78                                                                                                                                    
-                                                                                                                                                                                                                   
-    #If need to delete the file uncomment the folowing line:                                                                                                                                                       
-    #rm -- "$0"                                                                                                                                                                                                    
-                                                                                                                                                                                                                   
+    whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_$USERNAME dans votre dossier Dossier Personnel.\nIl suffit d'envoyer le fichier par mail à Balàzs.\nMerci et à bientôt." 12 78                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 }                                                                                                                                                                                                                  
 main
 exit
+#If need to delete the file uncomment the folowing line:                                                                                                                                                       
+#rm -- "$0" 
