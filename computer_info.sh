@@ -23,18 +23,18 @@ main () {
                                                                                                                                                                                                                    
     echo "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
     echo "Le nom d'utilisateur est : $USERNAME" >> Infos
-    echo "liste des utilisateurs : $ALL_USERS" >> Infos
-    echo "------------------------------------------------"
+    echo "liste des utilisateurs : $ALL_USERS" >> Infos 
+    echo "------------------------------------------------" >> Infos
     echo "Nom d'hôte : $HOSTNAME" >> Infos
-    echo "------------------------------------------------"
+    echo "------------------------------------------------" >> Infos
     echo "Numéro d'inventaire : $ID_GLPI" >> Infos
-    echo "------------------------------------------------"
+    echo "------------------------------------------------" >> Infos
     echo "La version d'Ubunutu est : Ubuntu $UBUNTU_VERSION" >> Infos 
-    echo "------------------------------------------------"
+    echo "------------------------------------------------" >> Infos
     echo "MAC address:\n $MAC_ADDR" >> Infos
-    echo "------------------------------------------------"
+    echo "------------------------------------------------" >> Infos
     echo "IP address:\n $IP_ADDR" >> Infos
-    echo "------------------------------------------------"
+    echo "------------------------------------------------" >> Infos
     echo "Version des logiciels"
     echo "$FIREFOX" >> Infos                                                                                                                                                                                       
     echo "$THUNDERBIRD" >> Infos                                                                                                                                                                                   
