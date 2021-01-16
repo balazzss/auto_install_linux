@@ -40,7 +40,7 @@ main () {
     whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_$NAME dans votre dossier Dossier Personnel.\nIl suffit d'envoyer le fichier par mail à Balàzs. \n.\nMerci et à bientôt.\n" 12 78                                                                                                                                    
                                                                                                                                                                                                                    
     #If need to delete the file uncomment the folowing line:                                                                                                                                                       
-    rm -- "$0"                                                                                                                                                                                                    
+    #rm -- "$0"                                                                                                                                                                                                    
                                                                                                                                                                                                                    
 }                                                                                                                                                                                                                  
 main
