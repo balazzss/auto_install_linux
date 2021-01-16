@@ -18,10 +18,13 @@ main () {
     THUNDERBIRD=$(thunderbird -v)                                                                                                                                                                                  
     LIBRE_OFFICE=$(libreoffice --version)                                                                                                                                                                          
     MAC_ADDR=$(ip link | awk '{print $2}')                                                                                                                                                                         
-    IP_ADDR=$(ip a | grep "scope" | grep -Po '(?<=inet )[\d.]+')                                                                                                                                                   
+    IP_ADDR=$(ip a | grep "scope" | grep -Po '(?<=inet )[\d.]+')
+    USERNAME=$(users)
                                                                                                                                                                                                                    
-    echo "L'utilisateur de l'ordinateur est : $NAME" >> Infos                                                                                                                                                      
-    echo "Nom d'hôte : $HOSTNAME" >> Infos                                                                                                                                                                         
+    echo "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
+    echo "Le nom d'utilisateur est : $USERNAME" >> Infos
+    echo "Nom d'hôte : $HOSTNAME" >> Infos
+    echo "Numéro d'inventaire : $ID_GLPI" >> Infos
     echo "La version d'Ubunutu est : Ubuntu $UBUNTU_VERSION" >> Infos                                                                                                                                              
     echo "MAC address:\n$MAC_ADDR" >> Infos                                                                                                                                                                        
     echo "IP address:\n$IP_ADDR" >> Infos                                                                                                                                                                          
