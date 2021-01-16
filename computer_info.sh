@@ -20,6 +20,7 @@ main () {
     MAC_ADDR=$(ip link | awk '{print $2}')                                                                                                                                                                         
     IP_ADDR=$(ip a | grep "scope" | grep -Po '(?<=inet )[\d.]+')
     USERNAME=$(users)
+    ID=$(echo ID_GLPI)
                                                                                                                                                                                                                    
     echo "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
     echo "Le nom d'utilisateur est : $USERNAME" >> Infos
