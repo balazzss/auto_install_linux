@@ -19,14 +19,23 @@ main () {
     MAC_ADDR=$(ip link | awk '{print $2}')                                                                                                                                                                         
     IP_ADDR=$(ip a | grep "scope" | grep -Po '(?<=inet )[\d.]+')
     USERNAME=$(users)
+    ALL_USERS=$(awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd)
                                                                                                                                                                                                                    
     echo "L'utilisateur de l'ordinateur est : $NAME" >> Infos 
     echo "Le nom d'utilisateur est : $USERNAME" >> Infos
+    echo "liste des utilisateurs : $ALL_USERS" >> Infos
+    echo "------------------------------------------------"
     echo "Nom d'hôte : $HOSTNAME" >> Infos
+    echo "------------------------------------------------"
     echo "Numéro d'inventaire : $ID_GLPI" >> Infos
-    echo "La version d'Ubunutu est : Ubuntu $UBUNTU_VERSION" >> Infos                                                                                                                                              
-    echo "MAC address:\n $MAC_ADDR" >> Infos                                                                                                                                                                        
-    echo "IP address:\n $IP_ADDR" >> Infos                                                                                                                                                                          
+    echo "------------------------------------------------"
+    echo "La version d'Ubunutu est : Ubuntu $UBUNTU_VERSION" >> Infos 
+    echo "------------------------------------------------"
+    echo "MAC address:\n $MAC_ADDR" >> Infos
+    echo "------------------------------------------------"
+    echo "IP address:\n $IP_ADDR" >> Infos
+    echo "------------------------------------------------"
+    echo "Version des logiciels"
     echo "$FIREFOX" >> Infos                                                                                                                                                                                       
     echo "$THUNDERBIRD" >> Infos                                                                                                                                                                                   
     echo "$LIBRE_OFFICE" >> Infos                                                                                                                                                                                  
