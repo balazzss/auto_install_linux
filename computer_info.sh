@@ -3,7 +3,7 @@
 file_check () {                                                                                                                                                                                                                                                                                                  
     FILENAME=ordinateur_de_$USERNAME                                                                                                                                                                                   
     if [ -e "$FILENAME" ]; then                                                                                                                                                                                    
-        echo "Vous avez déjà lancé ce programme une fois. Pour le relancer veuillez supprimer le fichier ordinateur_de_$USERNAME\n Si vous n'y parvenez pas, contactez votre administrateur système." && exit           
+        echo "Vous avez déjà lancé ce programme une fois. Pour le relancer veuillez supprimer le fichier ordinateur_de_$USERNAME \n Si vous n'y parvenez pas, contactez votre administrateur système." && exit           
     fi                                                                                                                                                                                                             
 }                                                                                                                                                                                                                  
 file_check  
