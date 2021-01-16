@@ -35,7 +35,7 @@ main () {
     echo "------------------------------------------------" >> Infos
     echo "IP address:\n $IP_ADDR" >> Infos
     echo "------------------------------------------------" >> Infos
-    echo "Version des logiciels"
+    echo "Version des logiciels" >> Infos
     echo "$FIREFOX" >> Infos                                                                                                                                                                                       
     echo "$THUNDERBIRD" >> Infos                                                                                                                                                                                   
     echo "$LIBRE_OFFICE" >> Infos                                                                                                                                                                                  
