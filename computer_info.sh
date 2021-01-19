@@ -67,4 +67,3 @@ main () {
     #rm -- "$0"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 }                                                                                                                                                                                                                  
 main
-exit
