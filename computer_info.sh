@@ -44,7 +44,7 @@ main () {
     echo  "------------------------------------------------" >> Infos
     echo "Le nom d'utilisateur est : $USERNAME" >> Infos
     echo "Nom d'hôte : $HOSTNAME" >> Infos
-    cat Infos | sed -e 's/^[ \t]*//' > ordinateur_de_$USERNAME
+    cat Infos | sed -e 's/^[ \t]*//' > ordinateur_de_$NAME
     rm -r Infos
 
     whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_NAME dans    votre dossier Dossier Personnel.\nIl suffit de l'envoyer par mail à Balàzs pour qu'il puisse encoder la  machine.\nSi vous ne le trouvez pas, n'hésitez pas à contacter Balàzs.\nMerci.\n" 12 78
