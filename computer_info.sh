@@ -47,7 +47,7 @@ main () {
     cat Infos | sed -e 's/^[ \t]*//' > ordinateur_de_$USERNAME
     rm -r Infos
 
-    whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_$USERNAME dans    votre dossier Dossier Personnel.\nIl suffit de l'envoyer par mail à Balàzs pour qu'il puisse encoder la  machine.\nSi vous ne le trouvez pas, n'hésitez pas à contacter Balàzs.\nMerci.\n" 12 78
+    whiptail --title "Terminé" --msgbox "Vous trouverez un fichier nommé ordinateur_de_NAME dans    votre dossier Dossier Personnel.\nIl suffit de l'envoyer par mail à Balàzs pour qu'il puisse encoder la  machine.\nSi vous ne le trouvez pas, n'hésitez pas à contacter Balàzs.\nMerci.\n" 12 78
 
     #If need to delete the file uncomment the folowing line:
     #rm -- "$0"
