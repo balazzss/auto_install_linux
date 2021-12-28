@@ -25,5 +25,6 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl start node_exporter.service
 sudo systemctl enable node_exporter.service
-sudo systemctl status node_exporter.service
+sudo systemctl status node_exporter.service && quit
+exit 
 
