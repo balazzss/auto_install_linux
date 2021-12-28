@@ -23,5 +23,7 @@ WantedBy=default.target
 EOF
 
 sudo systemctl daemon-reload
-sudo systemctl start node_exporter
-sudo systemctl enable node_exporter
+sudo systemctl start node_exporter.service
+sudo systemctl enable node_exporter.service
+sudo systemctl status node_exporter.service
+
