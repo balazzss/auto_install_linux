@@ -7,6 +7,7 @@ curl -s https://api.github.com/repos/prometheus/node_exporter/releases/latest| g
 tar -xvf node_exporter*.tar.gz
 sudo rm -r node_exporter*.tar.gz
 sudo cp node_exporter*/node_exporter /usr/local/bin
+sudo rm -r node_exporter*
 
 sudo tee /etc/systemd/system/node_exporter.service <<EOF
 [Unit]
