@@ -72,32 +72,3 @@ main () {
 }
 main
 
-
-#!/bin/bash
-
-compare=`diff sha256sum_drive.txt sha256sum_disk1.txt`
-#cp -r /home/balazsverduyn/googledrive /home/balazsverduyn/disk1
-rsync -avz /home/balazsverduyn/googledrive/ /home/balazsverduyn/disk1
-find /home/balazsverduyn/googledrive -type f -exec sha256sum {} \; > /home/balazsverduyn/sha256sum_drive.txt
-find /home/balazsverduyn/disk1 -type f -exec sha256sum {} \; > /home/balazsverduyn/sha256sum_disk1.txt
-
-sha256sum -c sha256sum_drive.txt
-sha256sum -c sha256sum_disk1.txt
-
-#remove directory to diff the files
-sed 's/\s.*$//' sha256sum_disk1.txt > sha256sum_disk1_withoutspace.txt
-mv sha256sum_disk1_withoutspace.txt sha256sum_disk1.txt
-sed 's/\s.*$//' sha256sum_drive.txt > sha256sum_drive_withoutspace.txt
-mv sha256sum_drive_withoutspace.txt sha256sum_drive.txt
-
-
-if [[ $compare -eq 0 ]]
-then
-        echo "Checksum OK. Backup done!"
-        rm /home/balazsverduyn/sha256sum_drive.txt
-        rm /home/balazsverduyn/sha256sum_disk1.txt
-else
-#       echo $variable | mail -s switch_HARDWARE_CHECK  recipeint_email_address    
-        echo "shasum is not correct! Please check the backup."  
-fi
-
