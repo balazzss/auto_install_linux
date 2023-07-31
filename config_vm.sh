@@ -58,6 +58,7 @@ EOF
 
 config_bashrc () {
 cat << 'EOF' >> /home/balazsverduyn/.bashrc
+############ Alias ############
 alias ipm="ip -br -c link show"
 alias ipa="ip -br -c addr show"
 alias ls='ls -lh --color=auto'
