@@ -56,6 +56,20 @@ set -g mouse on
 EOF
 }
 
+config_bashrc () {
+cat << 'EOF' >> /home/balazsverduyn/.bashrc
+alias ipm="ip -br -c link show"
+alias ipa="ip -br -c addr show"
+alias ls='ls -lh --color=auto'
+alias ..="cd .."
+alias vi=vim
+alias nano=vim
+alias port="sudo lsof -i -P -n | grep LISTEN"
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade -y'
+EOF
+}
+
 node_exporter () {
 curl -L https://raw.githubusercontent.com/balazzss/auto_install_linux/main/node_exporter.sh | sudo bash
 sleep 5
@@ -66,6 +80,7 @@ main () {
         programms_install || error "User exited."
         function_changeSSHport || error "User exited."
         config_tmux || error "User exited."
+        config_bashrc || error "User exited."
         node_exporter || error "User exited."
         end
         clear
